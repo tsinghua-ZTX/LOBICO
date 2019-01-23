@@ -4,10 +4,10 @@ Init
 %% Create artifical dataset
 
 %parameters
-N = 500;    %number of samples
-P = 25;     %number of predictors
-K = 2;      %number of disjuncts
-M = 2;      %maximum number of terms of disjunct
+N = 44;    %number of samples
+P = 10;     %number of predictors
+K = 3;      %number of disjuncts
+M = 3;      %maximum number of terms of disjunct
 nX = 0.01;  %noise in binary input (bit-flip probability in X)
 nY = 0.1;   %noise added to binary output to create continuous output
 
@@ -30,7 +30,7 @@ param = cat(1,{'timelimit.Cur',60,'MaxTime'},...                            %Max
 sol = lobico(X,W,K,M,1,param);
 
 %% Check solution
-display('***********************');
+DISP('***********************');
 
 %inferred formula
 x = round(sol.Solution.x);
@@ -44,4 +44,4 @@ str = showformula(SolMatT,K,M);
 disp('Actual logic model');
 disp(str);
 
-display('***********************');
+DISP('***********************');
