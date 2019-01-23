@@ -15,13 +15,8 @@ Y = ones(size(Norm_CRC_data(:,1)));
 Y(1:32) = 0;
 
 %% Generate W
-%add noise to binary output to create continuous output variable
-Y = Y + nY*randn(size(Y));
-%Create sample specific weight vector w using 0.5 as a binarization threshold
-W = abs(Y-0.5);
-%Binarize Y
-Y = double(Y>0.5);
 %Set equal class weights
+W = abs(Y-0.5);
 W(Y==1) = W(Y==1)./sum(W(Y==1));
 W(Y==0) = W(Y==0)./sum(W(Y==0));
 %Set weight of samples from the Y=0 class as negative numbers
