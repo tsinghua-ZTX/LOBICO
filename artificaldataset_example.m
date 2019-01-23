@@ -30,7 +30,7 @@ param = cat(1,{'timelimit.Cur',60,'MaxTime'},...                            %Max
 sol = lobico(X,W,K,M,1,param);
 
 %% Check solution
-DISP('***********************');
+disp('***********************');
 
 %inferred formula
 x = round(sol.Solution.x);
@@ -44,4 +44,4 @@ str = showformula(SolMatT,K,M);
 disp('Actual logic model');
 disp(str);
 
-DISP('***********************');
+disp('***********************');

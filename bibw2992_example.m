@@ -1,5 +1,5 @@
 %% Initialize
-Init
+%Init
 
 %% Load data
 
@@ -52,7 +52,7 @@ param = cat(1,{'timelimit.Cur',60,'MaxTime'},...                            %Max
 sol = lobico(X,W,K,M,1,param);
 
 %% Check solution
-display('***********************');
+disp('***********************');
 
 %inferred formula
 x = round(sol.Solution.x);
@@ -62,7 +62,7 @@ str = showformula(SolMat,K,M,Features);
 disp('Inferred logic model');
 disp(str);
 
-display('***********************');
+disp('***********************');
 
 %% Apply model to (test) data
 labels = applymodel(x,X,K,M,P); %apply the trained model to the data
