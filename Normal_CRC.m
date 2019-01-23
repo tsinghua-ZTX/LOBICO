@@ -1,20 +1,20 @@
 %% Initialize
 %Init
-K = 4
-M = 4
-P = 10
-N = 44
+K = 2;      %number of disjuncts
+M = 2;      %maximum number of terms of disjunct
+P = 10;     %number of predictors
+N = 44;     %number of samples
+nY = 0.1;   %noise added to binary output to create continuous output
 
 %% Data inport & process
 
 % Import data
-data = importdata('~/Downloads/bi_cpm_selected_features.Normal-CRC.txt')
-Norm_CRC_data = data.data'
-Y = zeros(size(Norm_CRC_data(:,1)))
-Y(1:32) = 1
+data = importdata('~/Downloads/adjust_bi_cpm_selected_features.Normal-CRC.txt');
+Norm_CRC_data = data.data';
+Y = ones(size(Norm_CRC_data(:,1)));
+Y(1:32) = 0;
 
 %% Generate W
-nY = 0.1
 %add noise to binary output to create continuous output variable
 Y = Y + nY*randn(size(Y));
 %Create sample specific weight vector w using 0.5 as a binarization threshold
