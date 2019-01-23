@@ -1,7 +1,7 @@
 %% Initialize
 %Init
 K = 2;      %number of disjuncts
-M = 2;      %maximum number of terms of disjunct
+M = 3;      %maximum number of terms of disjunct
 P = 10;     %number of predictors
 N = 44;     %number of samples
 nY = 0.1;   %noise added to binary output to create continuous output
