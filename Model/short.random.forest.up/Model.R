@@ -8,7 +8,9 @@ results_CRC <- ((!model1_CRC[1,]) & (!model1_CRC[2,]) & (!model1_CRC[3,])) |
   ((model2_CRC[1,]) & model2_CRC[2,] & model2_CRC[3,]) 
 table_CRC <- table(results_CRC, t(class_CRC))
 accuracy_CRC <- (table_CRC[1,1] + table_CRC[2,2])/nrow(class_CRC)
-accuracy_CRC
+recall_CRC <- table_CRC[2,2] / (table_CRC[2,2] + table_CRC[1,2])
+precision_CRC <- table_CRC[2,2] / (table_CRC[2,2] + table_CRC[2,1])
+F1_CRC <- 2 * recall_CRC * precision_CRC / (recall_CRC + precision_CRC)
 rownames(dat_CRC)[c(LogicModel_CRC[[1]])]
 
 ## CRC S1 Logic Model
@@ -21,7 +23,9 @@ results_CRC_S1 <- (model1_CRC_S1[1,] & (!model1_CRC_S1[2,]) & model1_CRC_S1[3,])
   ((!model2_CRC_S1[1,]) & (model2_CRC_S1[2,]) & (!model2_CRC_S1[3,]))
 table_CRC_S1 <- table(results_CRC_S1, t(class_CRC_S1))
 accuracy_CRC_S1 <- (table_CRC_S1[1,1] + table_CRC_S1[2,2])/nrow(class_CRC_S1)
-accuracy_CRC_S1
+recall_CRC_S1 <- table_CRC_S1[2,2] / (table_CRC_S1[2,2] + table_CRC_S1[1,2])
+precision_CRC_S1 <- table_CRC_S1[2,2] / (table_CRC_S1[2,2] + table_CRC_S1[2,1])
+F1_CRC_S1 <- 2 * recall_CRC_S1 * precision_CRC_S1 / (recall_CRC_S1 + precision_CRC_S1)
 rownames(dat_CRC_S1)[LogicModel_CRC_S1[[1]]]
 
 #### 下面的内容接下来再做
@@ -41,6 +45,7 @@ rownames(dat_PAAD)[LogicModel_PAAD[[1]]]
 short.random.forest.up <- c(accuracy_CRC, accuracy_CRC_S1)
 short.random.forest.up <- as.data.frame(short.random.forest.up)
 names(short.random.forest.up) <- "Accuracy"
+short.random.forest.up$F1 <- c(F1_CRC, F1_CRC_S1)
 short.random.forest.up$Type <- c("CRC", "CRC Stage I")
 short.random.forest.up$model <- c("~1 & ~2 & ~9 | 2 & 3 & 6 ", "1 & ~5 & 9 | ~1 & 2 & ~9 ")
 short.random.forest.up$method <- c(rep("short.random.forest.up", 2))

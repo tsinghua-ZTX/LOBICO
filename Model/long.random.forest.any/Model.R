@@ -7,7 +7,9 @@ model2_CRC <- dat_CRC[LogicModel_CRC[[2]],]
 results_CRC <- (model1_CRC) | (model2_CRC[1,] & model2_CRC[2,])
 table_CRC <- table(results_CRC, t(class_CRC))
 accuracy_CRC <- (table_CRC[1,1] + table_CRC[2,2])/nrow(class_CRC)
-accuracy_CRC
+recall_CRC <- table_CRC[2,2] / (table_CRC[2,2] + table_CRC[1,2])
+precision_CRC <- table_CRC[2,2] / (table_CRC[2,2] + table_CRC[2,1])
+F1_CRC <- 2 * recall_CRC * precision_CRC / (recall_CRC + precision_CRC)
 rownames(dat_CRC)[c(LogicModel_CRC[[1]], LogicModel_CRC[[2]])]
 
 ## HCC Logic Model
@@ -19,7 +21,9 @@ model2_HCC <- dat_HCC[LogicModel_HCC[[2]],]
 results_HCC <- model1_HCC | model2_HCC
 table_HCC <- table(results_HCC, t(class_HCC))
 accuracy_HCC <- (table_HCC[1,1] + table_HCC[2,2])/nrow(class_HCC)
-accuracy_HCC
+recall_HCC <- table_HCC[2,2] / (table_HCC[2,2] + table_HCC[1,2])
+precision_HCC <- table_HCC[2,2] / (table_HCC[2,2] + table_HCC[2,1])
+F1_HCC <- 2 * recall_HCC * precision_HCC / (recall_HCC + precision_HCC)
 rownames(dat_HCC)[LogicModel_HCC[[1]]]
 
 ## PAAD Logic Model
@@ -32,12 +36,15 @@ model3_PAAD <- dat_PAAD[LogicModel_PAAD[[3]],]
 results_PAAD <- ((!model1_PAAD[1,]) & model1_PAAD[2,] ) | model2_PAAD | model3_PAAD
 table_PAAD <- table(results_PAAD, t(class_PAAD))
 accuracy_PAAD <- (table_PAAD[1,1] + table_PAAD[2,2])/nrow(class_PAAD)
-accuracy_PAAD
+recall_PAAD <- table_PAAD[2,2] / (table_PAAD[2,2] + table_PAAD[1,2])
+precision_PAAD <- table_PAAD[2,2] / (table_PAAD[2,2] + table_PAAD[2,1])
+F1_PAAD <- 2 * recall_PAAD * precision_PAAD / (recall_PAAD + precision_PAAD)
 rownames(dat_PAAD)[LogicModel_PAAD[[1]]]
 
 long.random.forest.any <- c(accuracy_CRC, accuracy_HCC,accuracy_PAAD)
 long.random.forest.any <- as.data.frame(long.random.forest.any)
 names(long.random.forest.any) <- "Accuracy"
+long.random.forest.any$F1 <- c(F1_CRC, F1_HCC, F1_PAAD)
 long.random.forest.any$Type <- c("CRC", "HCC", "PAAD")
 long.random.forest.any$model <- c("9 | 2 & 3", "1 | 8", "~4 & 5 | 9 | 2")
 long.random.forest.any$method <- c(rep("long.random.forest.any", 3))

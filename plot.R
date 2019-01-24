@@ -5,9 +5,9 @@ long.random.forest.down <- read.table("~/LOBICO/long.random.forest.down.ACCURACY
 short.random.forest.any <- read.table("~/LOBICO/short.random.forest.any.ACCURACY.txt", header = T)
 short.random.forest.up <- read.table("~/LOBICO/short.random.forest.up.ACCURACY.txt", header = T)
 summary_data <- rbind(long.random.forest.any, long.random.forest.down, short.random.forest.any, short.random.forest.up )
-names(summary_data) <- c("Accuracy", "Type", "Model", "Method")
+names(summary_data) <- c("Accuracy", "F1_Score", "Type", "Model", "Method")
 
-general_plot <- ggplot(data = summary_data, aes(x = Type, y = Accuracy, fill = Method)) + 
+general_plot <- ggplot(data = summary_data, aes(x = Type, y = F1_Score, fill = Method)) + 
   geom_col( position="dodge") + 
   coord_flip() + scale_fill_brewer(palette="Set2") + 
   theme(panel.grid.major =element_blank(), panel.grid.minor = element_blank(),
@@ -17,7 +17,7 @@ general_plot
 scirep_data <- summary_data[which(summary_data$Method == "short.random.forest.up" | 
                                  summary_data$Method == "short.random.forest.any" ),]
 
-scirep_plot <- ggplot(data = scirep_data, aes(x = Type, y = Accuracy, fill = Method)) + 
+scirep_plot <- ggplot(data = scirep_data, aes(x = Type, y = F1_Score, fill = Method)) + 
   geom_col( width = 0.75,
             position=position_dodge(0.9)) + 
   coord_flip() + scale_fill_brewer(palette="Set2") + 
@@ -31,7 +31,7 @@ scirep_plot
 exbro_data <- summary_data[which(summary_data$Type == "HCC" | 
                                    summary_data$Type == "PAAD"),]
 
-exbro_plot <- ggplot(data = exbro_data, aes(x = Type, y = Accuracy, fill = Method)) + 
+exbro_plot <- ggplot(data = exbro_data, aes(x = Type, y = F1_Score, fill = Method)) + 
   geom_col( width = 0.75,
             position=position_dodge(0.9)) + 
   coord_flip() + scale_fill_brewer(palette="Set1") + 

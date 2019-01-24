@@ -1,4 +1,4 @@
-"Accuracy" "Type" "model" "method"
-"1" 0.977272727272727 "CRC" "9 | 2 & 3" "long.random.forest.any"
-"2" 0.924528301886792 "HCC" "1 | 8" "long.random.forest.any"
-"3" 0.91304347826087 "PAAD" "~4 & 5 | 9 | 2" "long.random.forest.any"
+"Accuracy" "F1" "Type" "model" "method"
+"1" 0.977272727272727 0.96 "CRC" "9 | 2 & 3" "long.random.forest.any"
+"2" 0.924528301886792 0.9 "HCC" "1 | 8" "long.random.forest.any"
+"3" 0.91304347826087 0.857142857142857 "PAAD" "~4 & 5 | 9 | 2" "long.random.forest.any"
