@@ -1,8 +1,8 @@
-normal_CRC <- read.table("~/LOBICO/data/long.random.forest.any/selected_feature_cpm_Normal-CRC.txt", 
+normal_CRC <- read.table("~/LOBICO/data/long.random.forest.down/selected_feature_cpm_Normal-CRC.txt", 
                   sep = '\t', header = T, row.names = 1)
-normal_HCC <- read.table("~/LOBICO/data/long.random.forest.any/selected_feature_cpm_Normal-HCC.txt", 
+normal_HCC <- read.table("~/LOBICO/data/long.random.forest.down/selected_feature_cpm_Normal-HCC.txt", 
                          sep = '\t', header = T, row.names = 1)
-normal_PAAD <- read.table("~/LOBICO/data/long.random.forest.any/selected_feature_cpm_Normal-PAAD.txt", 
+normal_PAAD <- read.table("~/LOBICO/data/long.random.forest.down/selected_feature_cpm_Normal-PAAD.txt", 
                          sep = '\t', header = T, row.names = 1)
 ## Normal-CRC part
 bi_normal_CRC <- normal_CRC
@@ -19,10 +19,10 @@ for(i in 1:a){
     }
   }
 }
-write.table(bi_normal_CRC, "~/LOBICO/data/long.random.forest.any/Bi-Normal-CRC.txt",
+write.table(bi_normal_CRC, "~/LOBICO/data/long.random.forest.down/Bi-Normal-CRC.txt",
             sep = "\t", row.names = T, col.names = T)
 normal_CRC_class <- c(rep(0, times = 32), rep(1, times = 12))
-write.table(normal_CRC_class, "~/LOBICO/data/long.random.forest.any/Normal-CRC-biclass.txt",
+write.table(normal_CRC_class, "~/LOBICO/data/long.random.forest.down/Normal-CRC-biclass.txt",
             sep = "\t", row.names = F, col.names = F)
 
 ## Normal-HCC part
@@ -40,10 +40,10 @@ for(i in 1:a){
     }
   }
 }
-write.table(bi_normal_HCC, "~/LOBICO/data/long.random.forest.any/Bi-Normal-HCC.txt",
+write.table(bi_normal_HCC, "~/LOBICO/data/long.random.forest.down/Bi-Normal-HCC.txt",
             sep = "\t", row.names = T, col.names = T)
 normal_HCC_class <- c(rep(0, times = 32), rep(1, times = 21))
-write.table(normal_HCC_class, "~/LOBICO/data/long.random.forest.any/Normal-HCC-biclass.txt",
+write.table(normal_HCC_class, "~/LOBICO/data/long.random.forest.down/Normal-HCC-biclass.txt",
             sep = "\t", row.names = F, col.names = F)
 
 ## Normal-PAAD part
@@ -61,8 +61,8 @@ for(i in 1:a){
     }
   }
 }
-write.table(bi_normal_PAAD, "~/LOBICO/data/long.random.forest.any/Bi-Normal-PAAD.txt",
+write.table(bi_normal_PAAD, "~/LOBICO/data/long.random.forest.down/Bi-Normal-PAAD.txt",
             sep = "\t", row.names = T, col.names = T)
 normal_PAAD_class <- c(rep(0, times = 32), rep(1, times = 14))
-write.table(normal_PAAD_class, "~/LOBICO/data/long.random.forest.any/Normal-PAAD-biclass.txt",
+write.table(normal_PAAD_class, "~/LOBICO/data/long.random.forest.down/Normal-PAAD-biclass.txt",
             sep = "\t", row.names = F, col.names = F)

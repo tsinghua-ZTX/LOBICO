@@ -1,17 +1,17 @@
 %% Initialize
 %Init
-K = 2;      %number of disjuncts
+K = 1;      %number of disjuncts
 M = 3;      %maximum number of terms of disjunct
 P = 10;     %number of predictors
-N = 44;     %number of samples
+N = 53;     %number of samples
 nY = 0.1;   %noise added to binary output to create continuous output
 
 %% Data inport & process
 
 % Import data
-data = importdata('~/LOBICO/data/long.random.forest.any/Bi-Normal-CRC.txt');
+data = importdata('~/LOBICO/data/short.random.forest.any/Bi-Normal-PAAD.txt');
 Norm_CRC_data = data.data';
-Y = importdata('~/LOBICO/data/long.random.forest.any/Normal-CRC-biclass.txt')
+Y = importdata('~/LOBICO/data/short.random.forest.any/Normal-PAAD-biclass.txt');
 
 %% Generate W
 %Set equal class weights
