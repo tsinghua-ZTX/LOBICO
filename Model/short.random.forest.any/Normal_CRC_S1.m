@@ -1,6 +1,6 @@
 %% Initialize
 %Init
-K = 1;      %number of disjuncts
+K = 2;      %number of disjuncts
 M = 3;      %maximum number of terms of disjunct
 P = 10;     %number of predictors
 N = 44;     %number of samples

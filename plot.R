@@ -5,7 +5,7 @@ long.random.forest.down <- read.table("~/LOBICO/long.random.forest.down.ACCURACY
 short.random.forest.any <- read.table("~/LOBICO/short.random.forest.any.ACCURACY.txt", header = T)
 short.random.forest.up <- read.table("~/LOBICO/short.random.forest.up.ACCURACY.txt", header = T)
 summary_data <- rbind(long.random.forest.any, long.random.forest.down, short.random.forest.any, short.random.forest.up )
-names(summary_data) <- c("Accuracy", "F1_Score", "Type", "Model", "Method")
+names(summary_data) <- c("Accuracy", "F1_Score", "Precision", "Recall", "Type", "Model", "Method")
 
 general_plot <- ggplot(data = summary_data, aes(x = Type, y = F1_Score, fill = Method)) + 
   geom_col( position="dodge") + 

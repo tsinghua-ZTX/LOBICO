@@ -44,6 +44,8 @@ long.random.forest.down <- c(accuracy_CRC, accuracy_HCC,accuracy_PAAD)
 long.random.forest.down <- as.data.frame(long.random.forest.down)
 names(long.random.forest.down) <- "Accuracy"
 long.random.forest.down$F1 <- c(F1_CRC, F1_HCC, F1_PAAD)
+long.random.forest.down$Precision <- c(precision_CRC, precision_HCC, precision_PAAD)
+long.random.forest.down$Recall <- c(recall_CRC, recall_HCC, recall_PAAD)
 long.random.forest.down$Type <- c("CRC", "HCC", "PAAD")
 long.random.forest.down$model <- c("1 | 3", "4 | 3 & ~4", "5 | ~3 & 10")
 long.random.forest.down$method <- c(rep("long.random.forest.down", 3))

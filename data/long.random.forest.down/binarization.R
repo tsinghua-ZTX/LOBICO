@@ -9,14 +9,27 @@ bi_normal_CRC <- normal_CRC
 a = nrow(bi_normal_CRC)
 b = ncol(bi_normal_CRC)
 for(i in 1:a){
-  temp <- sum(normal_CRC[i,])/b + sd(normal_CRC[i,])
-  for(j in 1:b){
-    if(normal_CRC[i,j] >= temp){
-      bi_normal_CRC[i,j] <- 1
+  temp <- sum(normal_CRC[i,])/b
+  sample_mean_CRC <- sum(normal_CRC[i,33:44]) / 12
+  if(temp <= sample_mean_CRC){
+    for(j in 1:b){
+      if(normal_CRC[i,j] >= temp + sd(normal_CRC[i,])){
+        bi_normal_CRC[i,j] <- 1
+      }
+      else{
+        bi_normal_CRC[i,j] <- 0
+      }
     }
-    else{
-      bi_normal_CRC[i,j] <- 0
-    }
+  }
+  else{
+    for(j in 1:b){
+      if(normal_CRC[i,j] <= temp - sd(normal_CRC[i,])){
+        bi_normal_CRC[i,j] <- 1
+      }
+      else{
+        bi_normal_CRC[i,j] <- 0
+      }
+    }  
   }
 }
 write.table(bi_normal_CRC, "~/LOBICO/data/long.random.forest.down/Bi-Normal-CRC.txt",
@@ -30,14 +43,27 @@ bi_normal_HCC <- normal_HCC
 a = nrow(bi_normal_HCC)
 b = ncol(bi_normal_HCC)
 for(i in 1:a){
-  temp <- sum(normal_HCC[i,])/b + sd(normal_HCC[i,])
-  for(j in 1:b){
-    if(normal_HCC[i,j] >= temp){
-      bi_normal_HCC[i,j] <- 1
+  temp <- sum(normal_HCC[i,])/b
+  sample_mean_HCC <- sum(normal_HCC[i,33:53]) / 21
+  if(temp <= sample_mean_HCC){
+    for(j in 1:b){
+      if(normal_HCC[i,j] >= temp + sd(normal_HCC[i,])){
+        bi_normal_HCC[i,j] <- 1
+      }
+      else{
+        bi_normal_HCC[i,j] <- 0
+      }
     }
-    else{
-      bi_normal_HCC[i,j] <- 0
-    }
+  }
+  else{
+    for(j in 1:b){
+      if(normal_HCC[i,j] <= temp - sd(normal_HCC[i,])){
+        bi_normal_HCC[i,j] <- 1
+      }
+      else{
+        bi_normal_HCC[i,j] <- 0
+      }
+    }  
   }
 }
 write.table(bi_normal_HCC, "~/LOBICO/data/long.random.forest.down/Bi-Normal-HCC.txt",
@@ -51,14 +77,27 @@ bi_normal_PAAD <- normal_PAAD
 a = nrow(bi_normal_PAAD)
 b = ncol(bi_normal_PAAD)
 for(i in 1:a){
-  temp <- sum(normal_PAAD[i,])/b + sd(normal_PAAD[i,])
-  for(j in 1:b){
-    if(normal_PAAD[i,j] >= temp){
-      bi_normal_PAAD[i,j] <- 1
+  temp <- sum(normal_PAAD[i,])/b
+  sample_mean_PAAD <- sum(normal_PAAD[i,33:46]) / 14
+  if(temp <= sample_mean_PAAD){
+    for(j in 1:b){
+      if(normal_PAAD[i,j] >= temp + sd(normal_PAAD[i,])){
+        bi_normal_PAAD[i,j] <- 1
+      }
+      else{
+        bi_normal_PAAD[i,j] <- 0
+      }
     }
-    else{
-      bi_normal_PAAD[i,j] <- 0
-    }
+  }
+  else{
+    for(j in 1:b){
+      if(normal_PAAD[i,j] <= temp - sd(normal_PAAD[i,])){
+        bi_normal_PAAD[i,j] <- 1
+      }
+      else{
+        bi_normal_PAAD[i,j] <- 0
+      }
+    }  
   }
 }
 write.table(bi_normal_PAAD, "~/LOBICO/data/long.random.forest.down/Bi-Normal-PAAD.txt",

@@ -1,3 +1,3 @@
-"Accuracy" "F1" "Type" "model" "method"
-"1" 0.506666666666667 0.455882352941177 "CRC" "~1 & 9 & ~10 | ~1 & 5" "short.random.forest.any"
-"2" 0.613333333333333 0.591549295774648 "CRC Stage I" "~5 & ~7 & ~8" "short.random.forest.any"
+"Accuracy" "F1" "Precision" "Recall" "Type" "model" "method"
+"1" 0.666666666666667 0.754901960784314 0.740384615384615 0.77 "CRC" "~3 & ~4 & ~5 | 3 & 4 & ~10 " "short.random.forest.any"
+"2" 0.746666666666667 0.424242424242424 0.875 0.28 "CRC Stage I" "4 & ~8 & ~9 | ~2 & ~6 & 8" "short.random.forest.any"
